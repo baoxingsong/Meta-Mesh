@@ -1,0 +1,11 @@
+#Meta-Storm
+Match 1
+Similarity: 87.2559%
+Sample Group: 0
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/ecological_metagenomes/CAMERA2/29/CAM_SMPL_SRA022057/parallel-meta
+#Meta-Storm
+Match 2
+Similarity: 78.3191%
+Sample Group: 0
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/ecological_metagenomes/MGRAST/223/4453148.3/parallel-meta
+metaStomrsCommand: /programm/metastorm/bin/query_index -i /mnt/bio/songbaoxing/parallelmetaresult/CAMERA2/38/YELLOWSTONE_SMPL_20725/parallel-meta/classification.txt -o /home/songbaoxing/Workspaces/MyEclipse/Mesh/WebRoot/samplemetastormstemp/d22fcd7e-2505-425b-805a-d4fd8b3376df/metastorms -d /home/songbaoxing/Workspaces/MyEclipse/Mesh/WebRoot/metastormdatabase -n 5 -t 8

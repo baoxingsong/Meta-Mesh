@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+      <property name="javax.persistence.validation.mode">none</property> 
+          <!-- 
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/metablast</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">binfo</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+          --> 
+   
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/metameta</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">168668</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+         
+        
+        <!-- 
+		<property name="hibernate.c3p0.acquire_increment">2</property> 
+        <property name="hibernate.c3p0.idle_test_period">0</property> 
+        <property name="hibernate.c3p0.timeout">0</property>
+        <property name="hibernate.c3p0.validate">true</property>
+         -->
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">20</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.c3p0.max_statements">500</property>
+        
+       <!--  <property name="connection.pool_size">10000</property> -->
+
+        <property name="current_session_context_class">thread</property>
+
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<!-- 
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+		 -->
+		<!-- 自动建表
+		<property name="hbm2ddl.auto">create</property>
+-->
+		<!--  -->
+        <mapping resource="org/metasee/database/model/MetaData.hbm.xml"/>
+        <mapping resource="org/metasee/database/model/MetaDataSample.hbm.xml"/>
+        <mapping resource="org/metasee/database/model/MetaDataSourcecodeOfOriginalPage.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/MetaDatainformationSourcecode.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/LocalSequenceData.hbm.xml"/>
+					 
+		<mapping resource="org/metasee/database/model/News.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/Wiki.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/Document.hbm.xml"/>
+		
+		<mapping resource="org/metasee/database/model/User.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/UploadProject.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/UploadFile.hbm.xml"/>
+		
+		<mapping resource="org/metasee/database/model/WorkShop.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/WorkGroupMember.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/WorkGroup.hbm.xml"/>
+		
+		<mapping resource="org/metasee/database/model/ParallelMetaResult.hbm.xml"/> 
+		<mapping resource="org/metasee/database/model/MetaStormsResult.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/ParallelMetaCompareResult.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/MetaStormsCompareResult.hbm.xml"/>
+		
+		<mapping resource="org/metasee/database/model/GoogleMapMetaDataSample.hbm.xml"/>
+		
+		<mapping resource="org/metasee/database/model/Article.hbm.xml"/>
+		<mapping resource="org/metasee/database/model/ArticleClassfication.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>

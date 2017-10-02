@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="workshop" namespace="/" extends="default">
+	 	<action name="addWorkShopInput" class="org.metasee.database.action.WorkShopAction" method="addWorkShopInput">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/user/workshop/workshopaddinput.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>	
+        <action name="addWorkShop" class="org.metasee.database.action.WorkShopAction" method="addWorkShop">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        <action name="getWorkShop" class="org.metasee.database.action.WorkShopAction" method="getWorkShopById">
+            <result name="owner">/WEB-INF/pages/frontpagedatabase/user/workshop/workshopviewowner.jsp</result>
+            <result name="member">/WEB-INF/pages/frontpagedatabase/user/workshop/workshopviewmember.jsp</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this workshop.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        
+        <action name="shareWorkShop" class="org.metasee.database.action.WorkShopAction" method="shareWorkShop">
+     		<result type="redirect" name="success">./getWorkShop?id=${id}</result>
+            <result type="redirect" name="owner">./getWorkShop?id=${id}</result>
+            <result name="member" type="redirect">./getWorkShop?id=${id}</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this Work Group.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        
+        <action name="unShareWorkShop" class="org.metasee.database.action.WorkShopAction" method="unShareWorkShop">
+     		<result type="redirect" name="success">./getWorkShop?id=${id}</result>
+            <result type="redirect" name="owner">./getWorkShop?id=${id}</result>
+            <result name="member" type="redirect">./getWorkShop?id=${id}</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this Work Group.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        
+      </package>
+</struts>

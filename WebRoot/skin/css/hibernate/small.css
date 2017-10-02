@@ -1,0 +1,1057 @@
+/* 
+small viewport 
+smaller than 980 px 
+*/     
+            
+#stage,
+#top_subnav_branding,
+#section-header,
+#branding,
+#proj_nav,
+#sub_nav,
+#wrapper-2,
+#nav-global,
+#nav-global ul ul {
+	min-width: 768px; /* 1024x768 is the size of an iPad */
+	/*overflow: hidden; this is messing up the dropdowns */
+}
+
+#wrapper-3 {
+	width: 480px;
+	width: 100%;
+	overflow: hidden;
+}
+.rightcol-layout #main {
+	min-width: 638px;/* liquid - for project page layout - was 460px */
+	background:none; /* liquid - gets rid of deckled edge */
+	margin-right:0px;/* liquid - gets rid of big margin-right */
+}
+.leftcol-layout #main {
+	margin-left:0px;/* liquid - gets rid of big margin-left */
+	background-image:none; /* removes dogear */
+}
+
+.rightcol-layout #main-wrapper {
+	margin-bottom:20px; /* this gives the dropped right column some padding-top */
+}
+
+.events {
+	clear: both;
+	margin-top: 20px;
+}
+.event-list li h3,
+.event-list li p {
+	width: 400px;
+}
+.event-list .mod h3,
+.event-list .mod p { /* With image */
+	width: 340px;
+}
+#platform,
+#platform img {
+	width: 460px;
+}
+#main .teaser h2 {
+	float: none;
+	width: auto;
+}
+#wrapper-2 .teaser .text-data {
+	float: none;
+}
+.col-subcol-subcol #main .teaser h2,
+#main .teaser-group .teaser h2,
+.col-float2-subcol #main .teaser h2,
+.nav-col-float2 #main .teaser h2 {
+	width: auto;
+}
+
+/* Opener in .nav-col */
+.nav-col .opener img {
+	float: none;
+	margin: 0 0 10px 0;
+} 
+
+/* 2 column layout:  nav | main */
+.nav-col #main {
+	width: 460px;
+}
+
+/* 2 column layout: no nav | main | sidebar */
+.col-subcolequal .column {
+	width: 270px;
+	float: right;
+	overflow: hidden; /* ie 6 */
+}
+
+/* 2 column layout: | main | extras equal width */
+.col-subcolequal #main {
+	width: 380px;
+}
+.col-subcol-equal .column {
+	width: 300px;
+}
+
+.col-subcol .column {
+	background-image:none;	
+}
+#main-wrapper {
+	background:url(../../images/magnolia/bkg_dogearhangwhite.png) no-repeat scroll right top #FFF;
+}
+
+
+/* 1 main col 2 teaser float */
+.col-float2 .teaser {
+	width: 48%;
+}
+.col-float2 #teaser-2,
+.col-float2 #teaser-4 {
+	margin-right: 20px;
+}
+.col-float2 #teaser-3,
+.col-float2 #teaser-5 {
+	clear: none;
+	margin-right: 0;
+}
+/* 1 main col 3 teaser float */
+.col-float3 #teaser-3,
+.col-float3 #teaser-6 {
+	margin-right: 20px;
+}
+.col-float3 #teaser-3,
+.col-float3 #teaser-4,
+.col-float3 #teaser-7 {
+	clear: none;
+}
+
+/* 3 column layout: | main | subcol | subcol */
+.col-subcol-subcol #main {
+	width: 380px;
+}
+.col-subcol-subcol .column,
+.col-subcol-subcol .column-1,
+.col-subcol-subcol .column-2 {
+	width: 300px;
+	float: right;
+	overflow: hidden; /* ie 6 */
+}
+.col-subcol-subcol .column-2 {
+	clear: both;
+}
+.col-subcol-subcol .column .box {
+	margin: 0 0 20px 0;
+}
+
+
+/* 2 column layout: | main (floating teasers) | subcol */
+.nav-col-float2 #wrapper-3,
+.nav-col-float2 #main,
+.nav-col-float2 .teaser {
+	width: 460px;
+}
+
+/* SECTION-HEADER 
+----------------- */
+#section-header p {
+	width: 63%;
+}
+
+
+
+
+/* LATEST
+------------------- */
+.nav-col-float2 #main .latest h3 {
+	width: 312px;
+}
+.col-subcol-subcol #main .latest h3 {
+	width: 232px;
+}
+#home.col-float2 #main .latest h3 {
+	width: 188px;
+}
+.nav-col #main .latest h3 {
+	width: 312px;
+}
+
+
+
+
+
+/* GLOSSARY 
+-----------------------*/
+.glossary-details {
+	width: 445px;
+}
+#main .glossary-details ul li {
+	float: none;
+	width: 435px;
+}
+.glossary-box {
+	width: 200px;
+}
+#letter-c,
+#letter-f,
+#letter-i,
+#letter-l,
+#letter-o,
+#letter-r,
+#letter-u, 
+#letter-x {
+	margin-right: 10px;
+}
+#letter-b,
+#letter-d,
+#letter-f,
+#letter-h,
+#letter-j,
+#letter-l,
+#letter-n, 
+#letter-p,
+#letter-r,
+#letter-t,
+#letter-v,
+#letter-x,
+#letter-z {
+	margin-right: 0;
+}
+
+
+
+/* TOC-BOX
+------------------------- */
+#module {
+	width: 300px;
+	float: right;
+	margin: 0 0 20px 0;
+	overflow: hidden; /* ie 6 */
+}
+.col-subcol-subcol .column #module .box {
+	margin: 0;
+}
+.column .toc-box,
+.column #module .toc-box {
+	background: #f2f2f2 url(../../images/bgs/text-box-300.png) -350px 100% no-repeat;
+	width: 300px;
+}
+.column .toc-box h2,
+.column #module .toc-box h2 {
+	background: #000 url(../../images/bgs/text-box-300.png) 0 0 no-repeat;
+}
+.column ol.toc-box-toc,
+.column #module ol.toc-box-toc {
+	background: #000 url(../../images/bgs/text-box-300.png) 0 -27px no-repeat;
+	width: 298px;
+}
+.column .toc-box .toc-box-section,
+.column #module .toc-box .toc-box-section {
+	background: #f2f2f2 url(../../images/bgs/text-box-300.png) -700px 100% repeat-y;
+	width: 284px;
+}
+
+
+/* Different images for .nav-col */
+.nav-col #main .text-box-tabs {
+	background: #f2f2f2 url(../../images/bgs/text-box.png) -540px 100% no-repeat;
+	width: 460px;
+}
+.nav-col .text-box-tabs .text-box-section {
+	width: 446px;
+	background: #f2f2f2 url(../../images/bgs/text-box.png) -1040px 100% repeat-y;
+}
+.nav-col #main .text-box-tabs h2 {
+	background: #000000 url(../../images/bgs/text-box.png) 0 0 no-repeat;
+}
+.nav-col ol.text-box-toc {
+	background: #000 url(../../images/bgs/text-box.png) 0 -30px no-repeat;
+}
+.nav-col #main .text-box-tabs .text-box-section h2 {
+	background: none;
+}
+
+
+/* EXTRAS 
+---------- */
+.column {
+	width: auto;
+	margin: 20px 0 0 0;
+}
+
+.bothcol-layout #rightcolumn,
+.rightcol-layout #rightcolumn {
+	padding:20px 30px 32767px 30px;/* brings grey column down to the bottom of the wrapper */
+	margin-bottom: -32747px;       /* brings grey column down to the bottom of the wrapper */
+	background-image:none;
+	margin-left:0px;
+	float:none;
+}  
+
+.bothcol-layout #leftcolumn,
+.leftcol-layout #leftcolumn {
+	padding:20px 30px 32767px 30px;/* brings grey column down to the bottom of the wrapper */
+	margin-bottom: -32747px;       /* brings grey column down to the bottom of the wrapper */
+	background-image:none;
+	margin-right:0px;
+	margin-top:0px;
+	float:none;
+}
+.bothcol-layout #main,
+.bothcol-layout #main-wrapper {
+	margin:0px;	
+	background-image:none;
+}
+
+.box {            
+	float: left;
+	clear: none;
+	width: 30%;/* liquid */
+	margin-left:20px; /* liquid */
+}
+.column > .one-two-three li {
+	width: 230px;
+}
+.column .event-list li h3,
+.column .event-list li p {
+	width: 250px;
+}
+.column .event-list li {
+	width: 300px;
+}
+.column .event-list .mod h3,
+.column .event-list .mod p { /* With image */
+	width: 170px;
+}
+.column .vcard {
+	width: 300px;
+}
+
+
+/* PROMOS 
+---------- */
+.promo {
+	margin: 0 20px 20px 0;
+}
+#promo-3 {
+	margin-right: 0;
+}
+ol.toc-box-toc {
+	width: 295px;
+}
+div.superpromos {
+	width: 258px;
+	overflow: hidden; /* ie 6 */
+}
+
+
+/* Photo */
+#photo-index .photo {
+	margin-right: 8px;
+}
+#photo-index dl.last {
+	margin-right: 18px;
+}
+
+
+
+/* Forms */
+.form div.l {
+	width: 483px;
+}
+
+
+
+.nav-col div.superpromos {
+	width: 258px;
+}
+.nav-col div.superpromos .superpromo-section img {
+	height: 100px;
+	width: 240px;
+}
+
+
+/* Calendar */
+#calendar {
+	margin: 0 10px 20px 0;
+}
+
+
+
+
+/* TeaserWrapper in Different Contexts 
+----------------------------- */
+
+/* ###################   TW-SWITCHER ################### */
+/* #####################
+Inside #Stage */
+#stage div.tw-switcher {
+	width: 698px;
+}
+.js-on #stage div.tw-switcher .rack {
+	width: 645px;
+}
+/* #####################
+Inside #wrapper-2 -> Platform Area */
+#wrapper-2 #wrapper-3 div.tw-switcher {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 div.tw-switcher .rack {
+	width: 410px;
+}
+.js-on #wrapper-2 #wrapper-3 div.tw-switcher .rack-teaser {
+	margin: 0 12px 0 0;
+}
+/* Inside #wrapper-2 -> Platform Area -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-switcher {
+	width: 700px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-switcher .rack {
+	width: 650px;
+}
+/* #####################
+Inside #main */
+#wrapper-2 #wrapper-3 #main div.tw-switcher {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 #main div.tw-switcher .rack {
+	width: 410px;
+}
+.js-on #wrapper-2 #wrapper-3 #main div.tw-switcher .rack-teaser {
+	margin: 0 12px 0 0;
+}
+/* Inside #main -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-switcher {
+	width: 380px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-switcher .rack {
+	width: 340px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-switcher .rack-teaser {
+	width: 320px;
+} 
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-switcher {
+	width: 700px;
+}
+.js-on .col-float2 #wrapper-2 #wrapper-3 #main div.tw-switcher .rack {
+	width: 655px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-switcher {
+	width: 460px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-switcher .rack {
+	width: 410px;
+}
+/* #####################
+Inside #wrapper-2 -> Base Element */
+#wrapper-2 div.tw-switcher {
+	width: 698px;
+} 
+.js-on #wrapper-2 div.tw-switcher .rack {
+	width: 645px;
+}
+
+
+
+
+
+
+/* ###################   TW-IMAGES ################### */
+/* #####################
+Inside #Stage */
+#stage div.tw-images {
+	width: 698px;
+}
+.js-on #stage div.tw-images .rack {
+	width: 660px;
+}
+/* #####################
+Inside #wrapper-2 -> Platform Area */
+#wrapper-2 #wrapper-3 div.tw-images {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 div.tw-images .rack {
+	width: 445px;
+}
+/* Inside #wrapper-2 -> Platform Area -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-images {
+	width: 700px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-images .rack {
+	width: 685px;
+}
+/* #####################
+ Inside #main */
+#wrapper-2 #wrapper-3 #main div.tw-images {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 #main div.tw-images .rack {
+	width: 445px;
+}
+/* Inside #main -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-images {
+	width: 380px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-images .rack {
+	width: 350px;
+} 
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-images {
+	width: 700px;
+}
+.js-on .col-float2 #wrapper-2 #wrapper-3 #main div.tw-images .rack {
+	width: 665px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-images {
+	width: 460px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-images .rack {
+	width: 445px;
+}
+/* #####################
+Inside #wrapper-2 -> Base Element */
+#wrapper-2 div.tw-images {
+	width: 698px;
+}
+.js-on #wrapper-2 div.tw-images .rack {
+	width: 670px;
+}
+
+
+
+
+
+
+/* ###################   TW-PAGING ################### */
+/* #####################
+Inside #Stage */
+#stage div.tw-paging {
+	width: 698px;
+}
+.js-on #stage div.tw-paging .rack {
+	width: 692px;
+	height: 240px;
+}
+#stage div.tw-paging .rack-teaser {
+	width: 675px;
+	height: 240px;
+}
+#stage div.tw-paging .rack-teaser h2 {
+	font-size: 160%;
+}        
+#stage div.tw-paging .rack-teaser p {
+	width: 300px;    
+	font-size: 130%;
+}
+#stage div.tw-paging .rack-teaser img {
+	width: 693px;
+	height: 236px;
+}
+/* #####################
+Inside #wrapper-2 -> Platform Area */
+#wrapper-2 #wrapper-3 div.tw-paging {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 div.tw-paging .rack {
+	width: 439px;
+}
+#wrapper-2 #wrapper-3 div.tw-paging .rack-teaser {
+	width: 420px;
+}
+#wrapper-2 #wrapper-3 div.tw-paging .rack-teaser h2 {
+	width: 420px;
+} 
+#wrapper-2 #wrapper-3 div.tw-paging .rack-teaser img {
+	width: 140px;
+}  
+#wrapper-2 #wrapper-3 div.tw-paging .rack-teaser p {
+	width: 270px; 
+}
+#wrapper-2 #wrapper-3 div.tw-paging .mod p {
+	width: 100%; 
+}
+/* Inside #wrapper-2 -> Platform Area -> Diffenrent Layout Types */
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-paging .rack {
+	width: 685px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-paging .rack-teaser {
+	width: 670px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-paging .rack-teaser h2 {
+	width: 100%;
+} 
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-paging .rack-teaser img {
+	width: 300px;
+} 
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-paging .rack-teaser p {
+	width: 350px; 
+}
+/* #####################
+ Inside #main */
+#wrapper-2 #wrapper-3 #main div.tw-paging {
+	width: 460px;
+}
+.js-on #wrapper-2 #wrapper-3 #main div.tw-paging .rack {
+	width: 439px;
+}
+#wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser {
+	width: 420px;
+}
+#wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser h2 {
+	width: 420px;
+} 
+#wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser img {
+	width: 140px;
+}  
+#wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser p {
+	width: 270px; 
+}
+#wrapper-2 #wrapper-3 #main div.tw-paging .mod p {
+	width: 100%; 
+}
+/* Inside #main -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging {
+	width: 380px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .rack {
+	width: 360px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser {
+	width: 360px;
+	height: auto;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser h2 {
+	width: 360px;
+}  
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser img {
+	height: 120px;
+	width: 140px;
+} 
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser p {
+	width: 200px; 
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-paging .mod p {
+	width: 100%; 
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging {
+	width: 698px;
+}
+.js-on .col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging .rack {
+	width: 675px;
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser {
+	width: 660px;
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser h2 {
+	width: 100%;
+} 
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser p {
+	width: 510px; 
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-paging .mod p {
+	width: 98%; 
+} 
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-paging {
+	width: 460px;
+}
+.js-on .nav-col #wrapper-2 #wrapper-3 #main div.tw-paging .rack {
+	width: 439px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser {
+	width: 420px;
+	height: auto;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser h2 {
+	width: 100%;
+} 
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-paging .rack-teaser p {
+	width: 270px; 
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-paging .mod p {
+	width: 98%; 
+}
+/* #####################
+Inside #wrapper-2 -> Base Element */
+#wrapper-2 div.tw-paging {
+	width: 698px;
+}
+.js-on #wrapper-2 div.tw-paging .rack {
+	width: 675px;
+}
+#wrapper-2 div.tw-paging .rack-teaser {
+	width: 670px
+}
+#wrapper-2 div.tw-paging .rack-teaser h2 {
+	width: 360px;
+}  
+#wrapper-2 div.tw-paging .rack-teaser img {
+	width: 300px;
+}  
+#wrapper-2 div.tw-paging .mod h2 {
+	width: 100%;
+}   
+#wrapper-2 div.tw-paging .rack-teaser p {
+	width: 350px; 
+}
+#wrapper-2 div.tw-paging .mod p {
+	width: 100%; 
+}
+
+
+
+
+
+/* ###################   TW-SLIDER ################### */
+/* #####################
+Inside #Stage */
+#stage div.tw-slider {
+	width: 698px;
+}
+.js-on #stage div.tw-slider .rack {
+	width: 657px;
+}
+#stage div.tw-slider .slider-bar {
+	background: #000 url(../../images/bgs/scrollbar-small.png) 0 0 no-repeat;
+	width: 485px;
+}
+/* #####################
+Inside #wrapper-2 -> Platform Area */
+#wrapper-2 #wrapper-3 div.tw-slider {
+	width: 458px;
+}
+.js-on #wrapper-2 #wrapper-3 div.tw-slider .rack {
+	width: 418px;
+}
+#wrapper-2 #wrapper-3 div.tw-slider .rack-teaser {
+	width: 400px;
+}
+#wrapper-2 #wrapper-3 div.tw-slider .slider-bar {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-460.png) 0 0 no-repeat;
+	width: 242px;
+}
+/* Inside #wrapper-2 -> Platform Area -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-slider {
+	width: 698px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-slider .rack {
+	width: 657px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 div.tw-slider .ui-slider {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-small.png) 0 0 no-repeat;
+	width: 698px;
+}
+/* #####################
+ Inside #main */
+#wrapper-2 #wrapper-3 #main div.tw-slider {
+	width: 458px;
+}
+.js-on #wrapper-2 #wrapper-3 #main div.tw-slider .rack {
+	width: 418px;
+}
+#wrapper-2 #wrapper-3 #main div.tw-slider .rack-teaser {
+	width: 400px;
+}
+#wrapper-2 #wrapper-3 #main div.tw-slider .rack-teaser h2 {
+	width: 230px;
+}     
+#wrapper-2 #wrapper-3 #main div.tw-slider .mod h2 {
+	width: 100%;
+}
+#wrapper-2 #wrapper-3 #main div.tw-slider .slider-bar {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-460.png) 0 0 no-repeat;
+	width: 242px;
+}
+/* Inside #main -> Diffenrent Layout Types */
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider {
+	width: 380px;
+}
+.js-on .col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .rack {
+	width: 338px;
+} 
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .rack-teaser {
+	width: 320px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .rack-teaser h2 {
+	width: 150px;
+}   
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .mod h2 {
+	width: 100%;
+} 
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .ui-slider {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-380.png) 0 0 no-repeat;
+	width: 378px;
+}
+.col-subcol-subcol #wrapper-2 #wrapper-3 #main div.tw-slider .ui-slider .ui-slider-handle {
+	width: 213px;
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-slider {
+	width: 700px;
+}
+.js-on .col-float2 #wrapper-2 #wrapper-3 #main div.tw-slider .rack {
+	width: 658px;
+}
+.col-float2 #wrapper-2 #wrapper-3 #main div.tw-slider .slider-bar {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-small.png) 0 0 no-repeat;
+	width: 485px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-slider {
+	width: 458px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-slider .rack {
+	width: 418px;
+}
+.nav-col #wrapper-2 #wrapper-3 #main div.tw-slider .slider-bar {
+	background: #f2f2f2 url(../../images/bgs/scrollbar-main-460.png) 0 0 no-repeat;
+	width: 245px;
+}
+/* #####################
+Inside #wrapper-2 -> Base Element */
+#wrapper-2 div.tw-slider {
+	width: 698px;
+}
+.js-on #wrapper-2 div.tw-slider .rack {
+	width: 657px;
+}
+#wrapper-2 div.tw-slider .slider-bar {
+	background: #000 url(../../images/bgs/scrollbar-small.png) 0 0 no-repeat;
+	width: 486px;
+}
+
+
+
+
+/* =JBoss Community Layout */
+#primarynav {
+}
+#primarynav ul li {
+}
+#primarynav ul li.current a {
+	padding-bottom:21px;
+}
+#primarynav ul li:hover {
+}
+#primarynav ul li a {
+	padding: 19px 10px;
+	font-size:11px; 
+}
+
+/* =Dropdowns */
+#primarynav ul li ul {
+	margin-top:-5px;	
+	width:165px;
+}
+#proj_nav ul li ul {
+	width:155px;	
+}
+#primarynav ul li ul li a, 
+#primarynav ul li.current ul li a, 
+#primarynav ul li.enterprise ul li a {
+	font-size:11px;	
+	padding:7px 8px 8px 12px;
+}
+#primarynav ul li ul li.open a,
+#primarynav ul li ul li ul li.open a.current, 
+#primarynav ul li ul li.open a.current, 
+#primarynav ul li.open a.current {
+	background-position: 155px 6px ;
+}
+#proj_nav ul li ul li.open a, 
+#sub_nav ul li ul li.open a {
+	background-position: 145px 6px ;	
+}
+#primarynav ul li ul li ul li.open a.current:hover, 
+#primarynav ul li ul li.open a.current:hover, 
+#primarynav ul li.open a.current:hover,
+#primarynav ul li ul li.open a:hover {
+	background-position:155px -53px ;
+}
+#proj_nav ul li ul li.open a:hover,
+#proj_nav ul li ul li.open a:hover {
+	background-position: 145px -53px ;	
+}
+#primarynav ul li ul li ul {
+	margin-left:34px;
+}
+#proj_nav ul li ul li ul {
+	margin-left:35px;	
+}
+#primarynav ul li ul li ul li a, 
+#primarynav ul li.current ul li ul li a, 
+#primarynav ul li.enterprise ul li ul li a {
+	padding:7px 7px 7px 12px;
+}
+#primarynav ul li ul li.current, 
+#primarynav ul li ul li:hover,
+#primarynav ul li ul li ul li.current, 
+#primarynav ul li ul li ul li:hover {
+	height:auto;
+}
+#primarynav ul li ul li ul li.open a.current, 
+#primarynav ul li ul li.open a.current, 
+#primarynav ul li.open a.current, 
+#proj_nav ul li ul li ul li.open a.current, 
+#sub_nav ul li ul li ul li.open a.current, 
+#proj_nav ul li ul li.open a.current, 
+#sub_nav ul li ul li.open a.current, 
+#proj_nav ul li.open a.current, 
+#sub_nav ul li.open a.current,
+#primarynav ul li ul li a, 
+#primarynav ul li.current ul li a, 
+#primarynav ul li.enterprise ul li a {
+	width:146px;
+}
+#proj_nav ul li ul li a, 
+#proj_nav ul li:hover ul li a, 
+#proj_nav ul li.current ul li a, 
+#proj_nav ul li ul li a:hover {
+	width:130px;
+}
+
+
+
+
+#nav-meta {
+	right:87px;
+}
+#nav-meta ul li,
+#nav-meta ul li a{
+	font-size:10px;	
+}
+#nav-meta ul li a{
+}
+
+
+
+#proj_nav ul li a {
+	font-size:11px;	
+}
+#proj_nav ul li#search-field {
+	display:none;	
+}
+
+
+/* =Reststar Rest-* styles */
+body#reststar-home #top_subnav_branding {
+	min-width: 800px; /* temporary fix to avoid messy font bleeds */
+}
+body#reststar-home #rs_spotlight {
+	background-position:left center;
+	height: 254px;	
+}
+body#reststar-home #rs_spotlight h2 {
+	margin-top:	20px;
+}
+#main-wrapper {
+	background-image:none;	
+}
+
+
+/* =Homepage styles  *make sure to append body.home before all styles to affect only styles on the homepage! --*/
+body.home {
+    /*background: url(../../images/bgs/bg-home-small.png) repeat-x scroll 0 0 #F3F3F3;*/
+}
+body.home #homespot .homespot-full{
+    background: url(https://www.jboss.org/dms/content/singular/homespot-full-nobttn-small.png) no-repeat scroll bottom center transparent;
+	height:337px;
+	width:100%
+}
+body.home #homespot .getstarted-bttn {
+	left:65%;
+	top:200px;
+}
+
+/* Tab-up Nav */
+#subnav_footer, #projsubnav_footer, #nav-footer, #tabnav {
+	min-width:768px;	
+}
+
+#tab {
+	background:url(../../images/common/tabnav-search-sml.png) repeat scroll 0 0 transparent;
+	width:84px;
+}
+
+
+body.home .spotlight-left,
+body.home .spotlight-center {
+    height: 115px;
+    float:left;
+    width: 49.7%;
+	border:1px solid #A8A8A8;
+	background-color:#CCC;
+}
+body.home .spotlight-right {
+	display:none;	
+}
+
+
+
+body.home .onecolumn {
+	width:99.3%;
+	padding-bottom:0px;	
+}
+body.home .hmpg-right,
+body.home .hmpg-middle {
+	width:49.5%;
+}
+
+body.home .onecolumn .left {
+	border-radius:0px 0px 0px 0px;
+	-moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px;
+	-moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px;
+	-moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px;
+}
+
+.interviews-rss, .issue-mod, #commonContent {
+	box-shadow:none;
+}
+
+/* Left  (Now Top) */
+body.home .hmpg-left .interviews-rss {
+	width:100%;	
+	border-radius: 5px;
+	overflow:hidden;
+	background: url(../../images/magnolia/bkg-feed-wrapper.png) no-repeat scroll bottom center #e6ebeb; 
+}
+body.home .hmpg-left .viewmorefeed {
+	position:relative;
+	width:100%;
+	border-bottom:3px solid #999;
+}
+body.home .hmpg-middle .viewmorefeed,
+body.home .hmpg-right .viewmorefeed {
+	width:49%;
+}
+body.home .hmpg-right .viewmorefeed {
+	border-left:3px solid #999;	
+}
+
+/* Middle & Right (now Bottom two) */
+body.home .hmpg-middle .issue-mod,
+body.home .hmpg-right #commonContent {
+	float:left;
+}
+
+body.home .whitebox,  
+body.home .rtcolumn-rss {
+	/*height:325px;  took out to bottom align viewmore */
+}
+
+body.home .interviews-rss h3,
+body.home #commonContent h3,
+body.home .issue-mod h3 {
+	border-bottom:1px solid #dfe4e4;	
+}
+body.home .whitebox,
+#commonContent .whitebox {
+	border-radius:0px ;
+}
+#commonContent .whitebox {
+	border-left:3px solid #999;	
+}
+
+body.home .onecolumn .center {
+	border-radius:0px 0px 0px 5px;
+	border-radius:0px 0 0 5px ;
+	-moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px;
+	-moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px;
+	-moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px;
+}
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="metastormsresult" namespace="/" extends="default">		
+        <action name="newmetastorms" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastorms/metastormsinput.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <action name="newmetastormsresultdo" class="org.metasee.database.action.MetaStormsResultAction" method="addMetaStormsResult">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastorms/metastormsinputsuccess.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+       <action name="getmetastormresult" class="org.metasee.database.action.MetaStormsResultAction" method="getMetaStormsResultById">
+           <result name="success">/WEB-INF/pages/frontpagedatabase/metastorms/metastormspage.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        
+        <action name="metastormscomment" class="org.metasee.database.action.MetaStormsResultAction" method="getMetaStormsResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastorms/metastormsComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       <action name="metastormscommentupdate" class="org.metasee.database.action.MetaStormsResultAction" method="getMetaStormsResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastorms/metastormsCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+		
+		<action name="metastormscommentupdateaction" class="org.metasee.database.action.MetaStormsResultAction" method="updateCommentById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        
+       </package>
+	
+</struts>

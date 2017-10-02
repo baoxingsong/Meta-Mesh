@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="MetaData"	table="metadata">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="metadata_id">
+			<!-- 指定使用identity主键生成策略 -->
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+		<property name="projectName" column="project_name"
+			type="string"/>
+		<property name="description" column="description"
+			type="string"/>	
+		<property name="createTime" column="create_time"
+			type="java.util.Date" />
+		<property name="databaseSource" column="database_source"
+			type="string"/>
+		<property name="sourceURL" column="source_url"
+			type="string"/>
+		<property name="sourceId" column="sourceId"
+			type="string"/>
+		<property name="metaDiscription" column="meta_discription"
+			type="string"/>
+		<property name="contactInformation" column="contact_information"
+			type="string"/>
+		<property name="sequenceingPlatform" column="sequenceing_platform"
+			type="string"/>	
+		<property name="databaseSourceURL" column="database_sourceURL"
+			type="string"/>
+		<property name="songChecked" column="songChecked"
+			type="int"/>
+			<!-- 一对一关联
+			
+		<one-to-one name="metaDiscriptionSourceCode"
+                class="MetaDatainformationSourcecode"
+                fetch="join"
+                cascade="all"
+                property-ref="metaData">
+    	</one-to-one>
+			
+		<one-to-one name="sourcecodeOfOriginalPage"
+                class="MetaDataSourcecodeOfOriginalPage"
+                fetch="join"
+                cascade="all"
+                property-ref="metaData">
+    	</one-to-one> -->
+		<!-- 1对多关联 -->
+		<!-- 映射集合属性，集合元素师其他持久化类实体，没有指定cascade属性，指定不控制关联关系 -->
+		<set name="metaDataSample" inverse="true" lazy="true">
+			<!-- 指定关联外键列 -->
+			<key column="project_id_in_metasee"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="MetaDataSample"/>
+		</set>
+			
+	</class>
+</hibernate-mapping>

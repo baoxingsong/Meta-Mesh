@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- Öž¶šHibernateÓ³ÉäÎÄŒþµÄDTDÐÅÏ¢ -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="Article"	table="article">
+		<id	name="id" type="integer" column="id">
+			<generator class="identity"/>
+		</id>
+		<property name="keyWord" column="keyword"
+			type="string"/>
+		<property name="content" column="content"
+			type="string"/>	
+		<property name="createTime" column="createTime"
+			type="java.util.Date" />
+		<property name="songChecked" column="songChecked"
+			type="int"/>
+		<many-to-one name="articleClassfication"
+        	class="ArticleClassfication"
+            column="classficationid"
+            lazy="false"
+            not-null="true"
+            	>             
+     </many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="LocalSequenceData"	table="localSequenceData">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="id">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+		<property name="localAddress" column="localAddress"	type="string"/>
+		
+		<!-- 一对N关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同 -->
+		 <many-to-one name="metaData"
+                 class="MetaData"
+                 column="metadata_id"
+                 not-null="true"
+                 >             
+     </many-to-one>
+		
+	</class>
+</hibernate-mapping>

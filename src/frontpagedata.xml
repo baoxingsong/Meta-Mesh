@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="fronpagedata" namespace="/" extends="default">
+		<action name="upload" class="org.metasee.database.action.UserAction" method="uploadInput">
+            <result name="logedon">/WEB-INF/pages/frontpagedatabase/upload.jsp</result>
+            <result type="redirect" name="success">./user/logininput</result>
+        </action>
+        <action name="uploadInnerFrame" class="org.metasee.database.action.UserAction" method="uploadInput">
+            <result name="logedon">/WEB-INF/pages/frontpagedatabase/uploadInnerFrame.jsp</result>
+            <result type="redirect" name="success">./user/logininput</result>
+        </action>
+	    <action name="index" class="org.metasee.database.action.FrontPageAction" method = "index">
+            <result>/WEB-INF/pages/frontpagedatabase/index.jsp</result>
+        </action>
+     	<action name="metadata_search"  class="org.metasee.database.action.FrontPageAction" method = "metadata_search">
+            <result>/WEB-INF/pages/frontpagedatabase/metadata_search.jsp</result>
+        </action>
+     	<action name="metadata_search_result" class="org.metasee.database.action.DatabaseAction" method="search">
+            <result>/WEB-INF/pages/frontpagedatabase/metadata_search_result.jsp</result>
+        </action>
+        
+        
+        <action name="sampleview" class="org.metasee.database.action.SampleViewAction" method="view">
+            <result>/WEB-INF/pages/frontpagedatabase/sampleviewer.jsp</result>
+        </action>
+        
+        <action name="sampleMetormsinput" class="org.metasee.database.action.SampleMetaStormsAction">
+            <result>/WEB-INF/pages/frontpagedatabase/metastormsinput.jsp</result>
+        </action>
+        <action name="sampleMetormsnew" class="org.metasee.database.action.SampleMetaStormsAction" method="runMetaStorms">
+            <result type="redirect" name="success">./getSampleMestorm?uuid=${uuid}&amp;id=${id}</result>
+        </action>
+        <action name="getSampleMestorm" class="org.metasee.database.action.SampleMetaStormsAction" method="getSmapleMetaStormsResult">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastormspage.jsp</result>
+        </action>
+        
+        
+        
+        <action name="metadata_*" class="org.metasee.database.action.DatabaseAction" method="{1}">
+            <result>/WEB-INF/pages/frontpagedatabase/metadata_{1}.jsp</result>
+        </action>
+        <action name="news_*" class="org.metasee.database.action.NewsAction" method="{1}">
+            <result>/WEB-INF/pages/frontpagedatabase/news_{1}.jsp</result>
+        </action>
+        <action name="wiki_*" class="org.metasee.database.action.WikiAction" method="{1}">
+            <result>/WEB-INF/pages/frontpagedatabase/wiki_{1}.jsp</result>
+        </action>
+        <action name="document_*" class="org.metasee.database.action.DocumentAction" method="{1}">
+            <result>/WEB-INF/pages/frontpagedatabase/document_{1}.jsp</result>
+        </action>
+		
+		 <action name="getxmlsourcecode" class="org.metasee.database.action.GetURLSourceCode" method="javaGetSourceCode">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/getxmlsourcecode.jsp</result>
+        </action>
+         <action name="map_*" class="org.metasee.database.action.GoogleMapDataSampleAction" method="{1}">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/mapajax.jsp</result>
+            <result name="viewsuccess">/WEB-INF/pages/frontpagedatabase/map.jsp</result>
+        </action>
+        
+    </package>
+	
+</struts>

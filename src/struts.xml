@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 改变struts2默认为2M的上传文件大小限制 -->  
+    <constant name="struts.multipart.maxSize" value="1024000000000"/>
+
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="mess"></constant>
+  	<!--<constant name="struts.multipart.saveDir" value="/home/songbaoxing/Workspaces/MyEclipse/ParallelMetaOnline/WebRoot/tem/"/> -->
+  	<constant name="struts.multipart.saveDir" value="/var/lib/tomcat7/meta-blast/ROOT/tmp/"/>
+  	
+	<!-- 文件上传 -->
+	<package name="upload" namespace="/" extends="struts-default">
+		<action name="uploadFile" class="org.metasee.database.commonUtil.UploadFileAction">
+			<result name="success">upload.jsp</result>
+		</action>
+	</package>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="index" />
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+    </package>
+
+	<package name="metadatadetailinformation" namespace="/metadata" extends="struts-default">
+       <action name="*" class="org.metasee.database.action.DatabaseAction" method="metadatadetailinformation">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metadata_detail_information.jsp</result>
+            <result name="norecord">/WEB-INF/pages/frontpagedatabase/metadata_detail_information_nosuch_arecord.jsp</result>
+       		<exception-mapping exception="java.lang.Exception" result="norecord"/>
+        </action>
+    </package> 
+    
+    <package name="metadatasampledetailinformation" namespace="/metasample" extends="struts-default">
+       <action name="*" class="org.metasee.database.action.MetaDataSampleAction" method="getMetaSampleDetail">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metadatasample_detail_information.jsp</result>
+            <result name="norecord">/WEB-INF/pages/frontpagedatabase/metadatasample_detail_information_nosuch_arecord.jsp</result>
+       		<exception-mapping exception="java.lang.Exception" result="norecord"/>
+        </action>
+    </package>
+   
+  <include file="user.xml"></include>
+  <include file="admin.xml"></include>
+  <include file="frontpagedata.xml"></include>
+  <include file="uploadproject.xml"></include>
+  <include file="uploadfile.xml"></include>
+  <include file="parallemetaresult.xml"></include>
+  <include file="metasormsresult.xml"></include>
+  <include file="parallelmetacompareresult.xml"></include>
+  <include file="metastormscompareresult.xml"></include>
+  <include file="api.xml"></include>
+  <include file="article.xml"></include>
+  <include file="workshop.xml"></include>
+  <include file="workgroup.xml"></include>
+</struts>

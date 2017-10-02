@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="WorkShop"	table="work_shop">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="id">
+			<!-- 指定使用identity主键生成策略 -->
+			<generator class="identity"/>
+		</id>
+		<property name="name" column="name"
+			type="string"/>	
+		<!-- 1对多关联 -->
+		<!-- 映射集合属性，集合元素师其他持久化类实体，没有指定cascade属性，指定不控制关联关系 -->
+		<set name="uploadProjects" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="workShopid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="UploadProject"/>
+		</set>
+			
+		<!-- 1对多关联 -->
+		<!-- 映射集合属性，集合元素师其他持久化类实体，没有指定cascade属性，指定不控制关联关系 -->
+		<set name="parallelMetaCompareResults" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="workShopid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="ParallelMetaCompareResult"/>
+		</set>
+		<set name="metaStormsCompareResults" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="workShopid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="MetaStormsCompareResult"/>
+		</set>
+		
+		<many-to-one name="owner"
+                 class="User"
+                 column="userid"
+                 lazy="false"
+                 not-null="false"
+          >             
+     </many-to-one>
+		<set name="workGroups"
+             table="join_workgroups_workshops"
+             cascade="all"
+             lazy="false">
+            <!--指定连接表中关联当前实体类的列名-->
+            <key column="workshopid" not-null="true"/>
+            <!--column="addressid"是连接表中关联本实体的外键-->
+            <many-to-many column="workgroupid"
+                          class="WorkGroup"/>
+        </set>	
+	</class>
+</hibernate-mapping>

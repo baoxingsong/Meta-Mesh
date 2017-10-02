@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="UploadProject"	table="uploadproject">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="uploadprojectid">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+		
+		<property name="randomFileName" column="randomfilename"	type="string"/>
+		<property name="songChecked" column="songChecked"	type="int"/>
+		<property name="createTime" column="createTime"	type="java.util.Date" />
+		<property name="comment" column="comment"	type="string"/>
+		
+		<!-- N对1关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同 -->
+		 <many-to-one name="workShop"
+                 class="WorkShop"
+                 column="workShopid"
+                 lazy="false"
+                 not-null="false"
+          >             
+     </many-to-one>
+     <!-- 1对多关联 -->
+		<!-- 映射集合属性，集合元素师其他持久化类实体，没有指定cascade属性，指定不控制关联关系 -->
+		<set name="uploadFiles" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="uploadprojectid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="UploadFile"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

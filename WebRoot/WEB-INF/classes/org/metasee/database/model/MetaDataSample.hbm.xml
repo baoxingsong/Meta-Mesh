@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="MetaDataSample"	table="meta_sample">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="id">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+		
+		<property name="project_name" column="project_name"	type="string"/>
+	
+<property name="database_source" column="database_source"	type="string"/>
+	
+<property name="project_id" column="project_id"	type="integer"/>
+	
+<property name="metagenome" column="metagenome"	type="string"/>
+	
+<!-- <property name="project_acc_in_metasee" column="project_acc_in_metasee"	type="integer"/> -->
+	
+<property name="longitude" column="longitude"	type="double"/>
+	
+<property name="title" column="title"	type="string"/>
+	
+<property name="env_biome" column="env_biome"	type="string"/>
+	
+<property name="env_matter" column="env_matter"	type="string"/>
+	
+<property name="country" column="country"	type="string"/>
+	
+<property name="env_feature" column="env_feature"	type="string"/>
+	
+<property name="publicornot" column="public"	type="string"/>
+	
+<property name="depth" column="depth"	type="string"/>
+
+<property name="latitude" column="latitude"	type="double"/>	
+	
+<property name="assigned_from_geo" column="assigned_from_geo"	type="string"/>
+	
+<property name="elevation" column="elevation"	type="string"/>
+	
+<property name="collection_date" column="collection_date"	type="string"/>
+	
+<property name="description" column="description"	type="string"/>
+	
+<property name="taxon_id" column="taxon_id"	type="string"/>
+	
+<property name="sample_name" column="sample_name"	type="string"/>
+	
+<property name="anonymized_name" column="anonymized_name"	type="string"/>
+	
+<property name="altitude" column="altitude"	type="string"/>
+	
+<property name="zhegebuyaole" column="zhegebuyaole"	type="string"/>
+	
+<property name="study_abstract" column="study_abstract"	type="string"/>
+	
+<property name="submit_to_insdc" column="submit_to_insdc"	type="string"/>
+	
+<property name="sff_complete" column="sff_complete"	type="string"/>
+	
+<property name="study_title" column="study_title"	type="string"/>
+	
+<property name="miens_compliant" column="miens_compliant"	type="string"/>
+	
+<property name="study_alias" column="study_alias"	type="string"/>
+	
+<property name="investigation_type" column="investigation_type"	type="string"/>
+	
+<property name="metadata_complete" column="metadata_complete"	type="string"/>
+	
+<property name="study_description" column="study_description"	type="string"/>
+	
+<property name="sample_count" column="sample_count"	type="string"/>
+	
+<property name="PI_firstname" column="PI_firstname"	type="string"/>
+	
+<property name="PI_lastname" column="PI_lastname"	type="string"/>
+	
+<property name="project_description" column="project_description"	type="string"/>
+	
+<property name="samp_size" column="samp_size"	type="string"/>
+	
+<property name="PI_organization_url" column="PI_organization_url"	type="string"/>
+	
+<property name="PI_organization_country" column="PI_organization_country"	type="string"/>
+	
+<property name="PI_organization_address" column="PI_organization_address"	type="string"/>
+	
+<property name="PI_organization" column="PI_organization"	type="string"/>
+	
+<property name="project_funding" column="project_funding"	type="string"/>
+	
+<property name="study_id" column="study_id"	type="string"/>
+	
+<property name="sample_id" column="sample_id"	type="string"/>
+	
+<property name="firstname" column="firstname"	type="string"/>
+	
+<property name="lastname" column="lastname"	type="string"/>
+	
+<property name="temp" column="temp"	type="string"/>
+	
+<property name="common_name" column="common_name"	type="string"/>
+	
+<property name="pmid" column="pmid"	type="string"/>
+	
+<property name="organization_country" column="organization_country"	type="string"/>
+	
+<property name="organization" column="organization"	type="string"/>
+	
+<property name="organization_url" column="organization_url"	type="string"/>
+	
+<property name="run_date" column="run_date"	type="string"/>
+	
+<property name="platform" column="platform"	type="string"/>
+	
+<property name="experiment_center" column="experiment_center"	type="string"/>
+	
+<property name="sequencing_meth" column="sequencing_meth"	type="string"/>
+	
+<property name="run_center" column="run_center"	type="string"/>
+	
+<property name="experiment_title" column="experiment_title"	type="string"/>
+	
+<property name="experiment_design_description" column="experiment_design_description"	type="string"/>
+	
+<property name="key_seq" column="key_seq"	type="string"/>
+	
+<property name="library_construction_protocol" column="library_construction_protocol"	type="string"/>
+	
+<property name="study_center" column="study_center"	type="string"/>
+	
+<property name="center_name" column="center_name"	type="string"/>
+	
+<property name="barcode" column="barcode"	type="string"/>
+	
+<property name="primer" column="primer"	type="string"/>
+	
+<property name="region" column="region"	type="string"/>
+	
+<property name="sample_origin_sampling_timezone" column="sample_origin_sampling_timezone"	type="string"/>
+	
+<property name="sample_origin_continent" column="sample_origin_continent"	type="string"/>
+	
+<property name="sample_origin_longitude" column="sample_origin_longitude"	type="string"/>
+	
+<property name="sequencing_sequencing_method" column="sequencing_sequencing_method"	type="string"/>
+	
+<property name="sample_origin_latitude" column="sample_origin_latitude"	type="string"/>
+
+<property name="songChecked" column="songChecked"	type="int"/>
+		
+			<!-- 一对N关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同 -->
+		 <many-to-one name="metaData"
+                 class="MetaData"
+                 column="project_id_in_metasee"
+                 lazy="false"
+                 not-null="true"
+                 >             
+     </many-to-one>
+		
+	</class>
+</hibernate-mapping>

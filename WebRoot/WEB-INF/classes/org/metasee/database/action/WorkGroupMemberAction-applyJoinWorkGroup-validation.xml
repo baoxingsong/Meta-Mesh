@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定校验配置文件的DTD信息 -->
+<!DOCTYPE validators PUBLIC 
+	"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<!-- 校验文件的根元素 -->
+<validators>
+	<field name="name">
+		<!-- 指定name属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Name of Work Shop cannot be empty.</message>
+		</field-validator>
+		<!-- 指定name属性必须匹配正则表达式 -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{6,25})]]></param>
+			<message>Name of Work Shop should be no less than 6 and no more than 25.</message>
+		</field-validator>
+	</field>
+	<field name="username">
+		<!-- 指定name属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>username cannot be empty.</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{6,25})]]></param>
+			<message>Username should be no less than 6 and no more than 25.</message>
+		</field-validator>
+	</field>
+	
+</validators>

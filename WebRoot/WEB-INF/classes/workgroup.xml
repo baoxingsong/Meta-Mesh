@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="workgroup" namespace="/" extends="default">
+	 	<action name="addWorkGroupInput" class="org.metasee.database.action.WorkGroupAction" method="addWorkGroupInput">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/user/workgroup/workgroupaddinput.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>	
+        <action name="addWorkGroup" class="org.metasee.database.action.WorkGroupAction" method="addWorkGroup">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        <action name="getWorkGroup" class="org.metasee.database.action.WorkGroupAction" method="getWorkGroupById">
+            <result name="owner">/WEB-INF/pages/frontpagedatabase/user/workgroup/workgroupviewowner.jsp</result>
+            <result name="member">/WEB-INF/pages/frontpagedatabase/user/workgroup/workgroupviewmember.jsp</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this Work Group.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+        
+     	<action name="deleteWorkGroupMember" class="org.metasee.database.action.WorkGroupMemberAction" method="deleteWorkGroupMember">
+     		<result type="redirect" name="success">./getWorkGroup?id=${workGroupId}&amp;message=Work Group member delete success.</result>
+            <result type="redirect" name="owner">./getWorkGroup?id=${workGroupId}&amp;message=Work Group member delete success.</result>
+            <result type="redirect" name="member">./getWorkGroup?id=${workGroupId}&amp;message=your could not delete this member.</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this Work Group.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+        </action>
+     	<action name="workGroupInvite" class="org.metasee.database.action.WorkGroupMemberAction" method="workGroupInvite">
+     		<result type="redirect" name="success">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     		<result type="redirect" name="login">./user/logininput</result>
+     		<result type="redirect" name="input">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     		<result type="redirect" name="member">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     		<result type="redirect" name="unauthorization">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     		<result type="redirect" name="none">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     		<result type="redirect" name="exist">./getWorkGroup?id=${workGroupId}&amp;inveiteMessage=${inveiteMessage}</result>
+     	</action>
+     	<action name="applyJoinWorkGroupInput" class="org.metasee.database.action.WorkGroupMemberAction" method="applyJoinWorkGroupInput">
+     		<result name="success">/WEB-INF/pages/frontpagedatabase/user/workgroup/workgroupjoinapplicationinput.jsp</result>
+     		<result type="redirect" name="login">./user/logininput</result>
+     	</action>
+     	<action name="applyJoinWorkGroup" class="org.metasee.database.action.WorkGroupMemberAction" method="applyJoinWorkGroup">
+     		<result type="redirect" name="success">./user?message=${message}</result>
+     		<result type="redirect" name="login">./user/logininput</result>
+     		<result name="input">/WEB-INF/pages/frontpagedatabase/user/workgroup/workgroupjoinapplicationinput.jsp</result>
+     	</action>
+     	<action name="acceptApplication" class="org.metasee.database.action.WorkGroupMemberAction" method="acceptApplication">
+     		<result type="redirect" name="success">./getWorkGroup?id=${workGroupId}&amp;message=Work Group member application approve success.</result>
+            <result type="redirect" name="owner">./getWorkGroup?id=${workGroupId}&amp;message=Work Group member application approve success.</result>
+            <result type="redirect" name="member">./getWorkGroup?id=${workGroupId}&amp;message=Your could not approve this application.</result>
+            <result type="redirect" name="unauthorization">./user?message=your could not view this Work Group.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+     	</action>
+     	<action name="acceptInvite" class="org.metasee.database.action.WorkGroupMemberAction" method="acceptInvite">
+     		<result type="redirect" name="success">./user?message=Work Group member invitation accept success.</result>
+            <result type="redirect" name="none">./user?message=There are no such a invitation.</result>
+            <result type="redirect" name="already">./user?message=You have accepted this invitation or there are no such a invitation.</result>
+            <result type="redirect" name="input">./user?message=You cannot accept this invitation.</result>
+            <result type="redirect" name="login">./user/logininput</result>
+     	</action>
+     	<action name="signout" class="org.metasee.database.action.WorkGroupMemberAction" method="signout">
+     		<result type="redirect" name="success">./user?message=Sign out success.</result>
+     		<result type="redirect" name="input">./user?message=You cannot sign this Work Group.</result>
+            <result type="redirect" name="none">./user?message=You are not a member of this Work Group</result>
+            <result type="redirect" name="login">./user/logininput</result>
+     	</action>
+     	
+      </package>
+</struts>

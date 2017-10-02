@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="MetaStormsResult"	table="uploadfilemetastormsresult">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="metastormsresultid">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性-->
+	
+		<property name="songChecked" column="songChecked"	type="int"/>
+		<property name="complete" column="complete"	type="int"/>
+		<property name="error" column="[error]"	type="int"/>
+		<property name="createTime" column="createtime"	type="java.util.Date" />
+		
+		<property name="comment" column="[comment]"	type="string"/>
+		
+		<property name="database" column="[database]"	type="string"/>
+		<property name="hitNumber" column="[hitNumber]"	type="int"/>
+		<property name="exhaustiveSearch" column="[exhaustiveSearch]"	type="string"/>
+		<property name="assignGroupNumber" column="assignGroupNumber"	type="string"/>
+				
+		
+		 
+			<!-- N对1关联 -->
+		<!-- 必须指定列名为***, 与关联实体中key元素的column属性值相同-->
+		 <many-to-one name="parallelMetaResult"
+                 class="ParallelMetaResult"
+                 column="parallelMetaResultid"
+                 lazy="false"
+         >             
+     </many-to-one>
+ 	
+		
+	</class>
+</hibernate-mapping>

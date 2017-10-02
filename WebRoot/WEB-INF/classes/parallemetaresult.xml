@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="parallelmetaresult" namespace="/" extends="default">		
+        <action name="removeparallelmetaresult" class="org.metasee.database.action.ParallelMetaResultAction" method="removeParallelMetaResult">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="newparallel" class="org.metasee.database.action.UploadFileAction" method="getUploadFileById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetainput.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="newparallelaction" class="org.metasee.database.action.ParallelMetaResultAction" method="addParallelMetaResult">
+            <result type="redirect" name="success">./newparallelactionsuccess?parallelMetaResultId=${parallelMetaResultId}</result>
+            <result type="redirect" name="exists">./newparallelactionexists</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="newparallelactionsuccess"  class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+        	<result>/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetainputsuccess.jsp</result>
+        </action>
+        <action name="newparallelactionexists"  class="org.metasee.database.action.ParallelMetaResultAction">
+        	<result>/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetainputexists.jsp</result>
+        </action>
+        
+        <action name="getparallelresult" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetapage.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        
+        <action name="parallelresult" class="org.metasee.database.action.ParallelMetaResultAction" method="getUploadFileById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadFileComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+		<action name="parallelmetacomment" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaresultComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <!--
+		<action name="parallelmetacomment" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaresultComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        -->
+        <action name="parallelmetacommentupdate" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaresultCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+		<action name="parallelmetacommentupdateaction" class="org.metasee.database.action.ParallelMetaResultAction" method="updateCommentById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="parallelmetacommentlog" class="org.metasee.database.action.ParallelMetaLogReadAction" method="getSourceCode">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetacommentlog.jsp</result>
+            <result name="login" type="redirect">./user</result>
+            <result name="not permit" type="redirect">./user</result>
+        </action>
+        
+        <action name="parallelmetaprogress" class="org.metasee.database.action.ParallelMetaResultAction" method="getParallelMetaResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaprogress.jsp</result>
+        </action>
+        
+        <action name="parallelmetasampleview" class="org.metasee.database.action.ParallelMetaResultAction" method="getSampleViewById">
+           <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaresultview.jsp</result> 
+          <!--   <result name="success">/upload/taxonomy.html</result>-->
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <action name="parallelmetadownload" class="org.metasee.database.action.ParallelReaultDownloadAction">
+            <result name="success" type="stream">
+            	<param name="inputName">targetFile</param>
+				<param name="contentDisposition">filename="parallelMetaResult.zip"</param>
+				<param name="bufferSize">4096</param>
+            </result>
+            <result name="login" type="redirect">./user/logininput</result>
+            <result name="not permit" type="redirect">./user</result>
+        </action>
+       </package>
+	
+</struts>

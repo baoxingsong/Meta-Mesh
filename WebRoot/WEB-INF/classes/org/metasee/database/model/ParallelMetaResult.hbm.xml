@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="ParallelMetaResult"	table="uploadfileparallelmetaresult">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="parallelmetaresultid">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性-->
+	
+		<property name="songChecked" column="songChecked"	type="int"/>
+		<property name="complete" column="complete"	type="int"/>
+		<property name="start" column="start"	type="int"/>
+		<property name="error" column="error"	type="int"/>
+		<property name="phylogeneticanalysis" column="phylogeneticanalysis"	type="string"/>
+		<property name="createTime" column="createtime"	type="java.util.Date" />
+		<property name="domainsample" column="domainsample"	type="string"/>
+		<property name="type" column="[type]"	type="string"/>
+		<property name="format" column="[format]"	type="string"/>
+		<property name="length" column="[length]"	type="string"/>
+		<property name="database" column="[database]"	type="string"/>
+		<property name="evalue" column="evalue"	type="string"/>
+		<property name="comment" column="comment"	type="string"/>
+		<property name="name" column="name"	type="string"/>
+		 
+			<!-- N对1关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同-->
+		 <many-to-one name="uploadFile"
+                 class="UploadFile"
+                 column="uploadfileid"
+                 lazy="false"
+         >             
+     </many-to-one>
+ 	
+ 	<set name="metaStormsResults" inverse="true" lazy="false">
+			<key column="parallelmetaresultid"/>
+			<one-to-many class="MetaStormsResult"/>
+	</set>
+	
+	<!-- 多对多关联 -->
+		<set name="parallelMetaCompareResults"
+             table="join_parallel_compare"
+             cascade="all">
+            <!--指定连接表中关联当前实体类的列名-->
+            <key column="parallelmetaresultid" not-null="true"/>
+            <!--column="addressid"是连接表中关联本实体的外键-->
+            <many-to-many column="parallelmetacompareresultid"
+                          class="ParallelMetaCompareResult"/>
+        </set>
+        
+        <set name="metaStormsCompareResults"
+             table="join_parallel_metastormscompare"
+             cascade="all">
+            <!--指定连接表中关联当前实体类的列名-->
+            <key column="parallelmetaresultid" not-null="true"/>
+            <!--column="addressid"是连接表中关联本实体的外键-->
+            <many-to-many column="metastormscompareresultid"
+                          class="MetaStormsCompareResult"/>
+        </set>
+		
+	</class>
+</hibernate-mapping>

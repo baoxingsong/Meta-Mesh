@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+	 <package name="usermanager" namespace="/user" extends="default">		
+          
+        <action name="login" class="org.metasee.database.action.UserAction" method="login">
+            <result type="redirect" name="success">../${sourceurl}</result>
+            <result type="redirect" name="logedon">../${sourceurl}</result>
+            <result type="redirect" name="login">logininput?sourceurl=${sourceurl}&amp;message=${message}</result>
+        </action>
+        
+        <action name="loginsucess" class="org.metasee.database.action.UserAction">
+            <result type="redirect">../user</result>
+        </action>
+
+        <action name="register" class="org.metasee.database.action.UserAction" method="register">
+            <result type="redirect" name="success">registersucess</result>
+            <result type="redirect" name="logedon">loginsucess</result>
+            <result name="error">/WEB-INF/pages/frontpagedatabase/user/register.jsp</result>
+            <result name="input">/WEB-INF/pages/frontpagedatabase/user/register.jsp</result>
+        </action>
+        
+        <action name="registersucess" class="org.metasee.database.action.UserAction">
+            <result>/WEB-INF/pages/frontpagedatabase/user/registersuccess.jsp</result>
+            <result name="logedon" type="redirect">../user</result>
+        </action>
+        
+        
+        <action name="logout" class="org.metasee.database.action.UserAction" method="logout">
+            <result type="redirect" name="success">../index</result>
+        </action>
+        
+        <action name="imginput">
+            <result>/WEB-INF/pages/frontpagedatabase/user/img.jsp</result>
+        </action>
+        
+        <action name="*input" class="org.metasee.database.action.UserAction" method="input">
+        	<result type="redirect" name="logedon">../user</result>
+            <result name="success">/WEB-INF/pages/frontpagedatabase/user/{1}.jsp</result>
+        </action>
+        
+        <action name="active" class="org.metasee.database.action.UserAction"  method="activeUser">
+        	<result name="logedon" type="redirect">../user</result>
+            <result name="success">/WEB-INF/pages/frontpagedatabase/user/login.jsp</result>
+            <result name="error">/WEB-INF/pages/frontpagedatabase/user/activefaild.jsp</result>
+        </action>
+        
+        <action name="findpasswordinput" class="org.metasee.database.action.UserAction">
+        	<result name="logedon" type="redirect">../user</result>
+        	<result name="success">/WEB-INF/pages/frontpagedatabase/user/findpasswordinput.jsp</result>
+        </action>
+        <action name="findpassword" class="org.metasee.database.action.UserAction" method="findPassword">
+        	<result name="logedon" type="redirect">../user</result>
+        	<result name="success">/WEB-INF/pages/frontpagedatabase/user/findpasswordsuccess.jsp</result>
+        	<result name="input">/WEB-INF/pages/frontpagedatabase/user/findpasswordinput.jsp</result>
+        </action>
+        
+        <action name="changePassword" class="org.metasee.database.action.UserAction">
+           	<result name="logedon">/WEB-INF/pages/frontpagedatabase/user/changePasswordinput.jsp</result>
+        	<result name="success" type="redirect">./user/logininput</result>
+        	
+        </action>
+        <action name="changePasswordDo" class="org.metasee.database.action.UserAction" method="changePassWord">
+        	<result name="input">/WEB-INF/pages/frontpagedatabase/user/changePasswordinput.jsp</result>
+        	<result name="success">/WEB-INF/pages/frontpagedatabase/user/changePasswordsuccess.jsp</result>
+        	<result name="login" type="redirect">../user/logininput</result>
+        </action>
+        
+         <action name="resendactivityemailinput" class="org.metasee.database.action.UserAction">
+         	<result name="logedon" type="redirect">../user</result>
+        	<result name="success">/WEB-INF/pages/frontpagedatabase/user/resendactivityemailinput.jsp</result>
+        	<result name="activited">/WEB-INF/pages/frontpagedatabase/user/resendactivityemailactivited.jsp</result>
+        </action>
+        <action name="resendactivityemail" class="org.metasee.database.action.UserAction" method="reSendActiveEmail">
+        	<result name="success">/WEB-INF/pages/frontpagedatabase/user/resendactivityemailsuccess.jsp</result>
+        	<result name="input">/WEB-INF/pages/frontpagedatabase/user/resendactivityemailinput.jsp</result>
+        	<result name="activited">/WEB-INF/pages/frontpagedatabase/user/resendactivityemailactivited.jsp</result>
+ 			<result name="logedon" type="redirect">../user</result>
+        </action>
+    </package>
+    
+	<package name="userfront" namespace="/" extends="default">
+		<action name="user" class="org.metasee.database.action.UserAction"  method="getUserByUserId">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/user/user.jsp</result>
+            <result name="error">/WEB-INF/pages/frontpagedatabase/index.jsp</result>
+            <result name="input">/WEB-INF/pages/frontpagedatabase/user/login.jsp</result>
+        </action>
+	</package>
+	
+</struts>

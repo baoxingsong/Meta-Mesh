@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="metastormscompareresult" namespace="/" extends="default">		
+
+        <action name="metastormscompareresultdo" class="org.metasee.database.action.MetaStormsCompareResultAction" method="addMetaStormsCompareResult">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastormscompare/metastormscompareresultaddsuccess.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+        
+        <action name="metastormscompareview" class="org.metasee.database.action.MetaStormsCompareResultAction" method="viewMetaStormsCompareResultById">
+           <result name="success">/WEB-INF/pages/frontpagedatabase/metastormscompare/metastormscompareresultdetailpage.jsp</result> 
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+     	<action name="metastormscomparedownload" class="org.metasee.database.action.MetaStormsCompareResultDownloadAction">
+			<result name="success" type="stream">
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">filename="compare.zip"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="login" type="redirect">./user/logininput</result>
+		</action>
+		
+		<action name="metastormscompareimage" class="org.metasee.database.action.MetaStormsCompareResultImageAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/png</param>
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">filename="compare.png"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="login" type="redirect">./user/logininput</result>
+			<result type="redirect" name="not permit">./user</result>
+		</action>
+		
+		<action name="metastormscomparemove" class="org.metasee.database.action.MetaStormsCompareResultAction" method="removeMetaStormsCompareResult">
+           <result type="redirect" name="success">./user</result> 
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+      
+        
+        <action name="metastormscomparecomment" class="org.metasee.database.action.MetaStormsCompareResultAction" method="getMetaStormsCompareResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastormscompare/metastormscompareresultComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="metastormscomparecommentupdate" class="org.metasee.database.action.MetaStormsCompareResultAction" method="getMetaStormsCompareResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/metastormscompare/metastormscompareresultCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       <action name="metastormscomparecommentupdateaction" class="org.metasee.database.action.MetaStormsCompareResultAction" method="updateCommentById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <!--   -->
+       </package>
+	
+</struts>

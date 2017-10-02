@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="parallelmetacompareresult" namespace="/" extends="default">		
+
+        <action name="newparallelmetacompareresultdo" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="addParallelMetaCompareResult">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmetacompare/parallelmetacompareresultinutsuccess.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+        <action name="parallelmetacompareview" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="getParallelMetaCompareResultViewById">
+           <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmeta/parallelmetaresultview.jsp</result> 
+           <result type="redirect" name="login">./user/logininput</result>
+           <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+		<action name="parallelmetacomparedownload" class="org.metasee.database.action.ParallelMetaConbineDownloadAction">
+			<result name="success" type="stream">
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">filename="combine.zip"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="login" type="redirect">./user/logininput</result>
+			<result name="not permit" type="redirect">./user</result>
+		</action>
+		
+		<action name="parallelmetacomparemove" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="removeParallelMetaCompareResult">
+           <result type="redirect" name="success">./user</result> 
+          <!--   <result name="success">/upload/taxonomy.html</result>-->
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       
+        
+        <action name="parallelmetacomparecomment" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="getParallelMetaCompareResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmetacompare/parallelmetacompareresultComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <action name="parallelmetacomparecommentupdate" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="getParallelMetaCompareResultById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/parallelmetacompare/parallelmetacompareresultCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+       <action name="parallelmetacomparecommentupdateaction" class="org.metasee.database.action.ParallelMetaCompareResultAction" method="updateCommentById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+       </package>
+	
+</struts>

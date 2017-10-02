@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="UploadFile"	table="uploadfile">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="uploadfileid">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+	
+		<property name="fileName" column="filename"	type="string"/>
+		<property name="songChecked" column="songChecked"	type="int"/>
+		<property name="complete" column="complete"	type="int"/>
+		<property name="comment" column="comment"	type="string"/>
+			
+			<!-- N对1关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同 -->
+		 <many-to-one name="uploadProject"
+                 class="UploadProject"
+                 column="uploadprojectid"
+           		 lazy="false"
+                 not-null="true"
+                 >
+   		</many-to-one>
+     
+		<set name="parallelMetaResults" inverse="true" lazy="false">
+			<key column="uploadfileid"/>
+			<one-to-many class="ParallelMetaResult"/>
+		</set>		 
+	</class>
+</hibernate-mapping>

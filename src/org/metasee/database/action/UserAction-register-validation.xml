@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定校验配置文件的DTD信息 -->
+<!DOCTYPE validators PUBLIC 
+	"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<!-- 校验文件的根元素 -->
+<validators>
+
+	<field name="username">
+		<!-- 指定name属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>User name cannot be empty.</message>
+		</field-validator>
+		<!-- 指定name属性必须匹配正则表达式 -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{6,25})]]></param>
+			<message>Username should be no less than 6 and no more than 25.</message>
+		</field-validator>
+	</field>
+	
+	<!-- 校验Action的pass属性 -->
+	<field name="password1">
+		<!-- 指定pass属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Password cannot be empty.</message>
+		</field-validator>
+		<!-- 指定pass属性必须满足匹配指定的正则表达式 -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{6,25})]]></param>
+			<message>Password should be no less than 6 and no more than 25.</message>
+		</field-validator>
+	</field>
+	
+	
+	<field name="password2">
+		<!-- 指定pass属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Password confirmation cannot be empty.</message>
+		</field-validator>
+		<!-- 指定pass属性必须满足匹配指定的正则表达式 -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{6,25})]]></param>
+			<message>Password should be no less than 6 and no more than 25.</message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[(password1 == password2)]]></param>
+			<message>These two passwords, you input, do not match.</message>
+		</field-validator>
+	</field>
+	
+	<field name="mailbox">
+		<field-validator type="required">
+			<param name="trim">true</param>
+			<message>Email cannot be empty.</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Please input a valited email.</message>
+		</field-validator>
+	</field>
+	
+	
+</validators>

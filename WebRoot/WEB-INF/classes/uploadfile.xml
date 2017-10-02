@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="uploadfile" namespace="/" extends="default">
+	 	<interceptors>
+        	<interceptor name="login" class="org.metasee.database.action.interceptor.LoginInterceptor"/>
+        </interceptors>
+        
+        <action name="removeuploadfile" class="org.metasee.database.action.UploadFileAction" method="removeUploadFileById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="getUploadfile" class="org.metasee.database.action.UploadFileAction" method="getUploadFileById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadfile.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        <action name="uploadfilesampleview" class="org.metasee.database.action.UploadFileAction" method="sampleView">
+            <result type="redirect" name="success">/${smapleViewPath}</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="getfilecomment" class="org.metasee.database.action.UploadFileAction" method="getUploadFileById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadFileComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+		<action name="setfilecommentupdate" class="org.metasee.database.action.UploadFileAction" method="getUploadFileById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadFileCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+		
+		<action name="filecommentupdateaction" class="org.metasee.database.action.UploadFileAction" method="updateCommentById">
+            <result type="redirect" name="success">./user</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./user</result>
+        </action>
+        
+        <action name="uploadfiledownload" class="org.metasee.database.action.UploadFileDownloadAction">
+			<result name="success" type="stream">
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">${fileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="login" type="redirect">./user/logininput</result>
+			<result name="not permit" type="redirect">./getWorkShop?id=${workShopId}&amp;message=you are not allowed to download that data.</result>
+		</action>
+        
+       </package>
+	
+</struts>

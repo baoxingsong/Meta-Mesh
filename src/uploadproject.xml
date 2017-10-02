@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+	 <package name="uploadproject" namespace="/" extends="default">		
+        <action name="removeuploadproject" class="org.metasee.database.action.UploadProjectAction" method="removeUploadProjectById">
+            <result type="redirect" name="success">./getWorkShop?id=${workShopId}</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./getWorkShop?id=${workShopId}</result>
+        </action>
+		
+		<action name="projectcomment" class="org.metasee.database.action.UploadProjectAction" method="getUploadProjectById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadProjectComment.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./getWorkShop?id=${workShopId}</result>
+        </action>
+        
+		<action name="projectcommentupdate" class="org.metasee.database.action.UploadProjectAction" method="getUploadProjectById">
+            <result name="success">/WEB-INF/pages/frontpagedatabase/uploadproject/uploadProjectCommentUpdate.jsp</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./getWorkShop?id=${workShopId}</result>
+        </action>
+		
+		<action name="projectcommentupdateaction" class="org.metasee.database.action.UploadProjectAction" method="updateCommentById">
+            <result type="redirect" name="success">./getWorkShop?id=${workShopId}</result>
+            <result type="redirect" name="login">./user/logininput</result>
+            <result type="redirect" name="not permit">./getWorkShop?id=${workShopId}</result>
+        </action>
+		
+		
+      </package>
+	
+</struts>

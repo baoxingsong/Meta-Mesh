@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+	<package name="admin" namespace="/admin" extends="default">
+	<default-action-ref name="index" />
+	    <action name="index">
+            <result>/WEB-INF/pages/admin/index.jsp</result>
+        </action>
+        <action name="database_*_action" class="org.metasee.database.action.DatabaseAction" method="{1}">
+           <!--  <interceptor-ref name="defaultStack"></interceptor-ref>
+ 			<interceptor-ref name="token"></interceptor-ref> -->
+     		<result name="invalid.token">/WEB-INF/pages/admin/database_add.jsp</result>
+     		<result name="success">/WEB-INF/pages/admin/database_{1}_success.jsp</result>
+            <result name="failexists">/WEB-INF/pages/admin/database_fail_exists.jsp</result>
+        </action>
+        
+        <action name="News_*_action" class="org.metasee.database.action.NewsAction" method="{1}">
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+ 			<interceptor-ref name="token"></interceptor-ref>
+     		<result name="invalid.token">/WEB-INF/pages/admin/news_add.jsp</result>
+            <result name="success">/WEB-INF/pages/admin/news_{1}_success.jsp</result>
+            <result name="failexists">/WEB-INF/pages/admin/news_fail_exists.jsp</result>
+        </action>
+        
+        <action name="document_*_action" class="org.metasee.database.action.DocumentAction" method="{1}">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+ 			<interceptor-ref name="token"></interceptor-ref>
+     		<result name="invalid.token">/WEB-INF/pages/admin/document_add.jsp</result>
+     		<result name="success">/WEB-INF/pages/admin/document_{1}_success.jsp</result>
+            <result name="failexists">/WEB-INF/pages/admin/document_fail_exists.jsp</result>
+        </action>
+        
+        <action name="wiki_*_action" class="org.metasee.database.action.WikiAction" method="{1}">
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+ 			<interceptor-ref name="token"></interceptor-ref>
+     		<result name="invalid.token">/WEB-INF/pages/admin/wiki_add.jsp</result>
+     		<result name="success">/WEB-INF/pages/admin/wiki_{1}_success.jsp</result>
+            <result name="failexists">/WEB-INF/pages/admin/wiki_fail_exists.jsp</result>
+        </action>
+        
+        <action name="news_list" class="org.metasee.database.action.NewsAction" method="list">
+            <result>/WEB-INF/pages/admin/news_list.jsp</result>
+        </action>
+		<action name="news_delete" class="org.metasee.database.action.NewsAction" method="deleteById">
+            <result type="redirect">news_list</result>
+        </action>
+		<action name="news_updateinput" class="org.metasee.database.action.NewsAction" method="updateinput">
+            <result>/WEB-INF/pages/admin/news_updateinput.jsp</result>
+        </action>
+        <action name="news_update" class="org.metasee.database.action.NewsAction" method="update">
+            <result type="redirect">news_list</result>
+        </action>
+        
+        <action name="database_list" class="org.metasee.database.action.DatabaseAction" method="list">
+            <result>/WEB-INF/pages/admin/metadata_list.jsp</result>
+        </action>
+		<action name="database_delete" class="org.metasee.database.action.DatabaseAction" method="deleteById">
+            <result type="redirect">database_list</result>
+        </action>
+		<action name="database_updateinput" class="org.metasee.database.action.DatabaseAction" method="updateinput">
+            <result>/WEB-INF/pages/admin/database_updateinput.jsp</result>
+        </action>
+        <action name="database_update" class="org.metasee.database.action.DatabaseAction" method="update">
+            <result type="redirect">database_list</result>
+        </action>
+        
+        <action name="wiki_list" class="org.metasee.database.action.WikiAction" method="list">
+            <result>/WEB-INF/pages/admin/wiki_list.jsp</result>
+        </action>
+		<action name="wiki_delete" class="org.metasee.database.action.WikiAction" method="deleteById">
+            <result type="redirect">wiki_list</result>
+        </action>
+		<action name="wiki_updateinput" class="org.metasee.database.action.WikiAction" method="updateinput">
+            <result>/WEB-INF/pages/admin/wiki_updateinput.jsp</result>
+        </action>
+        <action name="wiki_update" class="org.metasee.database.action.WikiAction" method="update">
+            <result type="redirect">wiki_list</result>
+        </action>
+        
+        <action name="document_list" class="org.metasee.database.action.DocumentAction" method="list">
+            <result>/WEB-INF/pages/admin/document_list.jsp</result>
+        </action>
+		<action name="document_delete" class="org.metasee.database.action.DocumentAction" method="deleteById">
+            <result type="redirect">document_list</result>
+        </action>
+		<action name="document_updateinput" class="org.metasee.database.action.DocumentAction" method="updateinput">
+            <result>/WEB-INF/pages/admin/document_updateinput.jsp</result>
+        </action>
+        <action name="document_update" class="org.metasee.database.action.DocumentAction" method="update">
+            <result type="redirect">document_list</result>
+        </action>
+        
+		<action name="*_*">
+            <result>/WEB-INF/pages/admin/{1}_{2}.jsp</result>
+        </action>
+    </package>
+</struts>

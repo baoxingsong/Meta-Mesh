@@ -1,0 +1,26 @@
+#Meta-Storm
+Match 1
+Similarity: 90.0126%
+Sample Group: 1
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/organismal_metagenomes/MGRAST/79/4456619.3/parallel-meta
+#Meta-Storm
+Match 2
+Similarity: 88.3926%
+Sample Group: 1
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/organismal_metagenomes/MGRAST/79/4456571.3/parallel-meta
+#Meta-Storm
+Match 3
+Similarity: 88.343%
+Sample Group: 1
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/organismal_metagenomes/MGRAST/79/4456585.3/parallel-meta
+#Meta-Storm
+Match 4
+Similarity: 87.2202%
+Sample Group: 1
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/organismal_metagenomes/MGRAST/79/4456604.3/parallel-meta
+#Meta-Storm
+Match 5
+Similarity: 86.3089%
+Sample Group: 1
+Sample path: /mnt/bio/songbaoxing/meta_Storms_database/organismal_metagenomes/MGRAST/79/4456634.3/parallel-meta
+metaStomrsCommand: /programm/metastorm/bin/query_index -i /mnt/bio/songbaoxing/parallelmetaresult/CAMERA2/39/CAM_SMPL_000998/parallel-meta/classification.txt -o /home/songbaoxing/Workspaces/MyEclipse/Mesh/WebRoot/samplemetastormstemp/219d2c73-4ec5-4ff7-8444-eaa203f66e53/metastorms -d /home/songbaoxing/Workspaces/MyEclipse/Mesh/WebRoot/metastormdatabase -n 5 -t 8

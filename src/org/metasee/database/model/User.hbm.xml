@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate映射文件的DTD信息 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate映射文件的根元素 -->
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="User"	table="user">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="user_id">
+			<!-- 指定使用identity主键生成策略 -->
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 -->
+		<property name="userName" column="userid"
+			type="string"/>
+		<property name="passWord" column="passwd"
+			type="string"/>	
+		<property name="mailBox" column="mailBox"
+			type="string"/>
+		<property name="randomString" column="randomString"
+			type="string"/>	
+		<property name="songChecked" column="songChecked"
+			type="int"/>
+		<property name="homedir" column="homedir"
+			type="string"/>
+			
+		<!-- 1对多关联 -->
+		<!-- 映射集合属性，集合元素师其他持久化类实体，没有指定cascade属性，指定不控制关联关系 -->
+		<set name="workShops" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="userid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="WorkShop"/>
+		</set>
+		<set name="workGroups" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="userid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="WorkGroup"/>
+		</set>
+		
+		<set name="workGroupMembers" inverse="true" lazy="false">
+			<!-- 指定关联外键列 -->
+			<key column="userid"/>
+			<!-- 用以映射到关联属性 -->
+			<one-to-many class="WorkGroupMember"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

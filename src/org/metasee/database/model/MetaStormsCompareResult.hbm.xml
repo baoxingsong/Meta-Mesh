@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.metasee.database.model">
+	<class	name="MetaStormsCompareResult"	table="metastormssompareresult">
+			<!-- 映射标识属性 -->
+		<id	name="id" type="integer" column="metastormssompareresultid">
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性-->
+	
+		<property name="songChecked" column="songChecked"	type="int"/>
+		<property name="error" column="error"	type="int"/>
+		<property name="complete" column="complete"	type="int"/>
+		<property name="createTime" column="createtime"	type="java.util.Date" />
+		<property name="comment" column="comment"	type="string" />
+		
+		<!-- N对1关联 -->
+		<!-- 必须指定列名为metadata_id, 与关联实体中key元素的column属性值相同-->
+		 <many-to-one name="workShop"
+                 class="WorkShop"
+                 column="workShopid"
+                 lazy="false"
+                 not-null="false"
+          >
+		 </many-to-one>
+		
+ 		
+ 		
+		<set name="parallelMetaResults"
+             table="join_parallel_metastormscompare"
+             cascade="all">
+            
+            <key column="metastormscompareresultid" not-null="true"/>
+            
+            <many-to-many column="parallelmetaresultid"
+                          class="ParallelMetaResult"/>
+        </set>
+		 
+	</class>
+</hibernate-mapping>
